@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Inventory {
     static void printItems(ArrayList<Supply> items) {
         int itemNum = 1;
-        for (Supply item : items) {
+        for (Supply item : items) { //iterate over a list/collection; taking items(arraylist), starting from the first item in the list and going to the last and for each item it's calling it item.
             String quantityBox = "[ ]";
-            int quantity = new Integer(itemNum);
-            if (quantity != 0) {
-                quantityBox = "[" + quantity + "]";
+            int amount = item.quantity;
+            if (amount != 0) {
+                quantityBox = "[" + amount + "]";
             }
-            System.out.println(itemNum + ". " + quantityBox + " " + item.text);
+            System.out.println(itemNum + ". " + quantityBox + " " + item.name);
             itemNum++;
         }
     }
@@ -42,10 +42,10 @@ public class Inventory {
             } else if (optionNum == 2) {
                 System.out.println("Type the number of the item you would like to remove.");
                 String item = scanner.nextLine();
-                items.remove(thing);
                 try {
                     int selectNum = Integer.valueOf(item);
                     Supply thing = items.get(selectNum - 1);
+                    items.remove(thing);
                 } catch (Exception e) {
                     System.out.println("An error occurred.");
                 }
@@ -54,7 +54,12 @@ public class Inventory {
                 String select = scanner.nextLine();
                 try {
                     int selectNum = Integer.valueOf(select);
-                    Supply thing = items.get(selectNum - 1);
+                    Supply item = items.get(selectNum - 1);
+                    System.out.println("Please enter the quantity for " + item.name + ".");
+                    String quantityString = scanner.nextLine();
+                    int quantity = Integer.valueOf(quantityString);
+                    item.quantity = quantity;
+                    System.out.println("Quantity of " + item.name + " updated to " + quantity + ".");
                 } catch (Exception e) {
                     System.out.println("An error occurred.");
                 }

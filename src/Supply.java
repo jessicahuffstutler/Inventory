@@ -2,11 +2,11 @@
  * Created by jessicahuffstutler on 10/12/15.
  */
 public class Supply {
-    String text;
+    String name;
     int quantity;
 
     public Supply(String name) {
-        text = name;
-        quantity = 1; //change this to prompt to get quantity
+        this.name = name;
+        quantity = 0; //change this to prompt to get quantity
     }
 }
