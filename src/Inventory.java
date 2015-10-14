@@ -13,7 +13,7 @@ public class Inventory {
             if (amount != 0) {
                 quantityBox = "[" + amount + "]";
             }
-            System.out.println(String.format("%d. %s %s %s", itemNum, quantityBox, item.name, item.category));
+            System.out.println(String.format("%d. %s %s (%s)", itemNum, quantityBox, item.name, item.category));
             itemNum++; //shorthand for itemNum = itemNum + 1;
         }
     }
@@ -102,4 +102,4 @@ public class Inventory {
             throw new Exception("Invalid category.");
         }
     }
-} //still need to list the items with their quantity and category.
+}
