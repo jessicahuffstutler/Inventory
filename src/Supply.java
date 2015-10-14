@@ -4,9 +4,5 @@
 public class Supply {
     String name;
     int quantity;
-
-    public Supply(String name) {
-        this.name = name;
-        quantity = 0; //change this to prompt to get quantity
-    }
+    String category;
 }
